@@ -245,7 +245,7 @@
 
     <!-- Footer -->
     <footer>
-        &copy; 2023 Yemek Sitesi - Tüm Hakları Saklıdır.
+        &copy; 2023 Yemek Sitesi - Tüm Hakları Saklıdır.irem
     </footer>
 </body>
 
