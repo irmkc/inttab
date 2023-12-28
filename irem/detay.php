@@ -28,208 +28,134 @@ $user_id = $_GET["user_id"];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <style>
-        /* Eski CSS Kodları */
+<style>
 
-        /* ... Diğer stiller ... */
+/* renk tanımları */
+:root {
+    --h1: 40px;
+    --h2: 30px;
+    --h3: 20px;
+    --h4: 15px;
+    --h5: 10px;
+    --color5: #ed3c44;
+    --color4: #f57c38;
+    --color3: #271e0f;
+    --color2: #fbf9a6;
+    --color1: #fafde2;
+    --colorwhite: white;
+    --colorblack: black;
+    --colorgray: gray;
+    --colorlightgray: lightgray;
+}
 
-        /* Yeni CSS Kodları */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: var(--color1);
+    background-image: url('/assets/son.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh; /* Ekran yüksekliği kadar ayarla */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+} 
+form {
 
-        /* Reset CSS */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    position: relative;
+    z-index: 3;
+    max-width: 300px;
+    margin: auto auto;
+    background-color: var(--color2);
+    background-size: cover;
+    padding: 20px;
+    border-radius: 12px;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
 
-        /* Typography */
-        body {
-            font-family: 'Rubik', sans-serif;
-            font-size: 16px;
-            line-height: 1.6;
-        }
+input {
+    background-color: var(--color1);
+    padding: 10px;
+    margin: 8px;
+    border-radius: 10px;
+    width: 70%;
+}
 
-        h1 {
-            font-size: var(--h1);
-        }
+label {
+    text-align: left;
+    width: 100%;
+    margin-bottom: 5px;
+}
+img{
+    max-width: 250px;
+}
+a {
+    background-color: var(--color4);
+    color: var(--colorwhite);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
 
-        h2 {
-            font-size: var(--h2);
-        }
+a:hover {
+    background-color: var(--color5);
+    color: var(--color1);
+}
 
-        h3 {
-            font-size: var(--h3);
-        }
+h1 {
+    color: var(--colorblack);
+    font-size: var(--h1);
+}
 
-        h4 {
-            font-size: var(--h4);
-        }
+.sifremiUnuttum {
+    background-color: var(--color2);
+    color: var(--color4);
+    text-decoration: underline;
+}
+.sifremiUnuttum:hover {
+    background-color: var(--color2);
+    color: #ed3c44;
+}
 
-        h5 {
-            font-size: var(--h5);
-        }
-
-        /* Page Layout */
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        main {
-            flex-grow: 1;
-        }
-
-        /* Header Styling */
-        header {
-            background-color: var(--color5);
-            padding: 10px;
-            border-radius: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header div {
-            display: flex;
-            align-items: center;
-        }
-
-        header img {
-            max-width: 100%;
-        }
-
-        header span {
-            margin-left: 10px;
-            font-weight: bold;
-        }
-
-        header a {
-            text-decoration: none;
-            color: var(--color1);
-            font-weight: bold;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-
-        header a:hover {
-            color: var(--color3);
-        }
-
-        /* Menu Styling */
-        .ustmenu {
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-            background-color: var(--color5);
-            border-radius: 5px;
-            margin: 20px;
-        }
-
-        .ustmenu li {
-            margin: 15px;
-        }
-
-        .ustmenu a {
-            text-decoration: none;
-            color: var(--color1);
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        .ustmenu a:hover {
-            color: var(--color3);
-        }
-
-        /* Form Styling */
-        form {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        form input[type="search"] {
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid var(--colorgray);
-            border-radius: 5px;
-        }
-
-        form input[type="submit"] {
-            padding: 10px 15px;
-            font-size: 16px;
-            background-color: var(--color5);
-            color: var(--color1);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        form input[type="submit"]:hover {
-            background-color: var(--color3);
-            color: var(--colorwhite);
-        }
-
-        /* Content Styling */
-        .acikmavi {
-            background-color: var(--color2);
-            border: 1px solid var(--colorgray);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px;
-            transition: background-color 0.3s ease;
-        }
-
-        .acikmavi:hover {
-            background-color: var(--color3);
-        }
-
-        .ortala {
-            text-align: center;
-            margin-top: 0;
-        }
-
-        .ortala a {
-            text-decoration: none;
-            color: var(--color4);
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        .ortala a:hover {
-            color: var(--color5);
-        }
-
-        /* Footer Styling */
-        footer {
-            background-color: var(--color5);
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        /* ... Diğer stiller ... */
-    </style>
+</style>
 
 </head>
 
 <body>
+
+
+     <!-- Header -->
+     
+        <header>
+        <div>
+            <img src="assets/logo.png" alt="Yemek Sitesi Logo" rig style="max-width: 50%;">
+        </div>
+        </header>
+
     <?php
     if (isset($_COOKIE["user_id"])) { // giriş yapmış olan
     ?>
         <ul class="ustmenu">
-            
+          
             <li><a href="anasayfa.php">Ana Sayfa</a></li>
-            
+            <li><a href="cikis.php">Çıkış Yap</a></li>
         </ul>
     <?php
     } else { // giriş yapmadıysa veya çerez sona erdiyse 
     ?>
-        
+        <ul class="ustmenu">
+            <li> Hoşgeldin misafir </li>
+            <li><a href="anasayfa.php">Ana Sayfa</a></li>
+            <li><a href="giris.php
+            ">Giriş Yap</a></li>
+            <li><a href="kayit.php">Kayıt Ol</a></li>
+        </ul>
     <?php
     } 
     // vt ye bağlan
