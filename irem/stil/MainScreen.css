@@ -1,0 +1,390 @@
+:root {
+    --h1: 60px bold;
+    --h2: 45px bold;
+    --h3: 30px bold;
+    --h4: 23px bold;
+    --h5: 15px bold;
+    --color5: #ed3c44;
+    --color4: #f57c38;
+    --color3: #f9be60;
+    --color2: #fbf9a6;
+    --color1: #fafde2;
+    --colorwhite: white;
+    --colorblack: black;
+    --colorgray: gray;
+    --colorlightgray: lightgray;
+    font-family: 'Rubik', sans-serif;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: var(--color1);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--colorblack);
+    background-color: var(--color2);
+}
+
+header {
+    padding: 20px;
+    padding-right: 10px;
+}
+
+img {
+    height: 130px;
+}
+
+.imglogo {
+    float: left;
+    height: 90px;
+    margin-left: 0px;
+}
+
+top-header {
+    flex-direction: row;
+}
+
+.search-input {
+    /* Buraya istediğiniz stil özelliklerini ekleyin */
+    width: 200px;
+    height: 30px;
+    border: 2px solid;
+    border-color: var(--color4);
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 10px;
+    /* Diğer stil özelliklerini buraya ekleyebilirsiniz */
+}
+
+/* Eğer arama butonunu odaklandığında stil */
+.search-input:focus {
+    outline: none;
+    border-color: var(--color4);
+}
+
+header {
+    flex-direction: row;
+}
+
+nav li {
+    margin: 15px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    background-color: var(--color5);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 200px;
+    margin-right: 200px;
+    border-radius: 5px;
+    justify-content: center;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+nav ul li a:hover {
+    color: var(--color3);
+}
+
+.adsoyad {
+    background-color: var(--color3);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 3px;
+    color: var(--colorblack);
+}
+
+.adsoyad a {
+    color: var(--colorblack);
+}
+
+nav ul li a {
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--color1);
+    font-weight: bold;
+}
+
+main-content {
+    padding: 20px;
+    justify-content: center;
+    display: flex-end;
+}
+
+.recipe-card {
+    background-color: var(--color3);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-right: 230px;
+    margin-left: 230px;
+}
+
+.recipe-card img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.recipe-card .recipe-card-container-left {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+    border-right: 2px solid var(--color5);
+    /* 1 piksel kalınlığında siyah bir sağ kenarlık eklendi */
+}
+
+.recipe-card .recipe-card-container-left .recipe-card-container-photoandtext {
+    flex-direction: column;
+}
+
+.recipe-card .recipe-card-container-left .deneme {
+    width: 500px;
+    flex-direction: row;
+    display: flex;
+}
+
+.recipe-card .recipe-card-container-right {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recipe-card .recipe-card-container-right .recipe-card-container-photoandtext {
+    flex-direction: column;
+}
+
+.recipe-card .recipe-card-container-right .deneme {
+    width: 500px;
+    flex-direction: row;
+    display: flex;
+}
+
+.recipe-card h3 {
+    margin-top: 10px;
+}
+
+.recipe-card p {
+    color: var(--colorblack);
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+.adsoyad:hover{
+    background-color: var(--colorblack);
+    color: var(--color3);
+}
+/* 
+
+.recipe-card a {
+  background-color: var(--color4);
+  color: var(--colorwhite);
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  max-width: 100px;
+}
+
+.recipe-card a:hover {
+  background-color: var(--color5);
+  color: var(--color1);
+}
+
+ */
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+    background-color: var(--color1);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+}
+
+.modal-tarif-ekle {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-tarif-ekle-content {
+    background-color: var(--color4);
+    margin: 9% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    
+}
+.modal-tarif-ekle-content .tarificerigi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.modal-tarif-ekle-content .tarif-ekle-cesit-select {
+    text-align: center;
+    padding-bottom: 5px;
+    background-color: var(--color2);
+    padding-top: 5px;
+    margin-bottom: 15px;
+}
+.modal-tarif-ekle-content .tarificerigi .tarifaditext {
+    background-color: var(--color2);
+    border-width: 2px;
+    border-color: var(--color5);
+    margin-bottom: 20px;
+}
+
+.modal-tarif-ekle-content .tarificerigi .icindekilertext {
+    background-color: var(--color2);
+    width: 800px;;
+    height: 100px;
+    text-align: start;
+    border-width: 2px;
+    border-color: var(--color5);
+    resize: none; /* Kullanıcı tarafından boyutlandırılmasını engelle */
+    display: block; /* Blok düzeninde görüntüle */
+    margin-top: 5px; /* Boşluk ekleyerek üstten başlama pozisyonunu ayarla */
+    margin: 10px;
+}
+.modal-tarif-ekle-content .tarificerigi .tarifimieklesubmit {
+    border-color: var(--color5);
+    background-color: var(--color5);
+    color: var(--color1);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+.modalBizeUlasin {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modalBizeUlasin-content {
+  background-color: var(--color1);
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, 
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+footer {
+    background-color: var(--color3);
+    position: relative;
+    z-index: 2;
+    bottom: 0;
+    width: 100%;
+    font-size: 10px;
+}
+
+
+
+.coolBeans {
+  box-sizing: border-box;
+  border: 1.5px solid currentColor;
+  border-radius: 2rem;
+  color: var(--color5);
+  font-size: 1.5rem;
+  font-weight: bold;
+  overflow: hidden;
+  padding: 0.5rem 1rem;
+  position: relative;
+  text-decoration: none;
+  transition: 0.2s transform ease-in-out;       /* Burası arka planı doldurduktan sonra ne zaman geri kapanmaya başlayacağını ayarlayan yer */
+  will-change: transform;
+  z-index: 0;
+}
+
+.coolBeans::after {
+  background-color: var(--color4);
+  border-radius: 2rem;
+  content: '';
+  display: block;
+  height: 100%;
+  font-weight: bold;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-100%, 0) rotate(0deg);
+  transform-origin: left;
+  transition: 0.2s transform ease-out;  /*Burası kayma hızın ayarlayacağın yer*/
+  will-change: transform;
+  z-index: -1;
+}
+
+.coolBeans:hover::after {
+  transform: translate(0, 0);
+}
+
+.coolBeans:hover {
+  border: 2px solid transparent;
+  color: var(--color1);
+  transform: scale(1);
+  will-change: transform;
+}
