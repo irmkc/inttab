@@ -123,18 +123,35 @@
             color: var(--colorwhite);
         }
 
+
         /* Content Styling */
         .acikmavi {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
             background-color: var(--color2);
             border: 1px solid var(--colorgray);
             border-radius: 10px;
-            padding: 20px;
-            margin: 20px;
+            padding: 30px;
+            margin: 10px 150px;
             transition: background-color 0.3s ease;
         }
 
         .acikmavi:hover {
             background-color: var(--color3);
+        }
+
+        .acikmavi .ortala {
+            text-align: right; 
+            flex-grow: 1; 
+        }
+
+        .acikmavi p {
+            margin-left: 50px; 
+        }
+
+        .acikmavi h2 {
+            margin-right: 20px; 
         }
 
         .ortala {
@@ -147,12 +164,16 @@
             color: var(--color4);
             font-weight: bold;
             transition: color 0.3s ease;
-            display: block; /* Yeni eklenen stil */
-            margin-bottom: 10px; /* Yeni eklenen stil */
+            display: block; 
+            margin-bottom: 10px; 
         }
 
         .ortala a:hover {
             color: var(--color5);
+        }
+
+        .acikmavi h2 {
+            margin-right: 20px; 
         }
 
         /* Footer Styling */
@@ -220,6 +241,13 @@
             background-color: var(--color3);
             color: var(--colorwhite);
         }
+
+        .materyalresim{
+            margin-right: 70%;
+            width: 15%;
+            height: 15%;
+        }
+
     </style>
 </head>
 
