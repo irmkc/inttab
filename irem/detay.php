@@ -69,6 +69,7 @@ $user_id = $_GET["user_id"];
             padding: 7px;
             background-color: var(--color2);
         }
+        
 
         .ustmenu {
             list-style: none;
@@ -172,7 +173,8 @@ $user_id = $_GET["user_id"];
     <!-- Header -->
     <header>
         <div class="logo-kart">
-            <img src="assets/logo.png" alt="Yemek Sitesi Logo">
+    <img src="assets/logo.png" alt="Yemek Sitesi Logo">
+
         </div>
 
         <ul class="ustmenu">
@@ -210,7 +212,14 @@ $user_id = $_GET["user_id"];
             break;
         default:
             break;
-    }
+    };
+
+    echo "Kullanılacak Malzemeler:";
+    echo htmlentities($kayit["malzemeler"]);
+    echo "<br><br>";
+    echo "Tarifiniz:";
+    echo htmlentities($kayit["yemektarifi"]);
+    echo "<br><br>";
     // Kim yükledi ismini yazdıralım
     //echo $kayit["kimyukledi"];
     echo "<p>Yükleyen: ";
@@ -250,6 +259,7 @@ $user_id = $_GET["user_id"];
         echo htmlentities($kayit["zaman"]);
         echo "<br><br>";
         echo "</div>";
+
     }
     ?>
 </body>

@@ -41,6 +41,7 @@ form {
     align-items: center;
     max-width: 400px; /* Max genişlik belirtildi */
     margin-top: 110px;
+    z-index: 0;
 }
 
 input {

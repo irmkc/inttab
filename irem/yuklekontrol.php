@@ -73,9 +73,9 @@ move_uploaded_file($_FILES["dosya"]['tmp_name'], $hedef);
 include "inc/vtyebaglan.inc.php";
 
 // Sorgular ve diğer işlemler burada...
-$sql = "insert into yukle (yemek, dosyayolu, tur, kimyukledi) values (:yemek, :dosyayolu, :tur, :kimyukledi)";
+$sql = "insert into yukle (yemek, yemekadi, malzemeler, yemektarifi, dosyayolu, tur, kimyukledi) values (:yemek, :yemekadi, :malzemeler, :yemektarifi, :dosyayolu, :tur, :kimyukledi)";
 $ifade = $vt->prepare($sql);
-$ifade->execute(Array(":yemek" => $_POST["yemek"], ":dosyayolu" => $hedef, ":tur" => $_FILES["dosya"]["type"], ":kimyukledi" => $_COOKIE["user_id"]));
+$ifade->execute(Array(":yemek" => $_POST["yemek"], ":yemekadi"=>$_POST["yemekadi"], ":malzemeler"=>$_POST["malzemeler"], ":yemektarifi"=>$_POST["yemektarifi"], ":dosyayolu" => $hedef, ":tur" => $_FILES["dosya"]["type"], ":kimyukledi" => $_COOKIE["user_id"]));
 
 // Bağlantıyı yok edelim...
 echo "yemek fotoğrafı yüklendi!";

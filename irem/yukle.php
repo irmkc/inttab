@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="kayit.css">
 </head>
 
 <body>
@@ -20,12 +21,15 @@
             <option value="tatlı">Tatlı</option>
             <option value="aperitif">Aperitif</option>
         </select>
-        
-        <?PHP
-        if (!isset($_POST["ad"])) exit("İsim girilmesi gerekiyor!");
-        $ad = trim($_POST["ad"]);
-        if  (mb_strlen($ad) < 2) exit("İsim en az 2 karakter olmalıdır!");
-        ?>
+        <p>
+        <label for="yemekadi">Yemeğinizin Adı: </label>
+        <textarea type="text" name="yemekadi"></textarea>
+        <p>
+        <label for="malzemeler">Kullanılacak Malzemeler: </label>
+        <textarea type="text" name="malzemeler"></textarea>
+        <p>
+        <label for="yemektarifi">Yemek Tarifi: </label>
+        <textarea type="text" name="yemektarifi"></textarea>
         <br><br>
 
         <label for="dosya"> Yüklemek istediğiniz dosyayı seçiniz:</label>
@@ -34,6 +38,12 @@
 
     </form>
 
+        <?PHP
+        if (!isset($_POST["yemekadi"])) exit("Yemek adı girilmesi gerekiyor!");
+        $ad = trim($_POST["yemekadi"]);
+        if  (mb_strlen($yemekadi) < 2) exit("Yemeğinizin adı en az 4 karakter olmalıdır!");
+        ?>
+        
         <?php
     } else {
         echo "Dosya paylaşmak için önce giriş yapmalısınız.<br>";

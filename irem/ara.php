@@ -53,7 +53,7 @@ $terim = $_GET["terim"];
     include "inc/vtyebaglan.inc.php";
     // yukle tablosundan verileri okutacağım
     
-    $sql ="select yukle.*, kullanicilar.ad, kullanicilar.soyad from yukle join kullanicilar on yukle.kimyukledi = kullanicilar.user_id like :terim";
+    $sql ="select yukle.*, kullanicilar.ad, kullanicilar.soyad from yukle join kullanicilar on yukle.kimyukledi =kullanicilar.user_id WHERE yukle.yemekadi LIKE :terim";
     $ifade = $vt->prepare($sql);
     $terim2 = "%".$terim."%";
     $ifade->execute(Array(":terim"=>$terim2));
@@ -67,12 +67,10 @@ $terim = $_GET["terim"];
         echo "</p>";
         while ($kayit = $ifade->fetch(PDO::FETCH_ASSOC)) {
             echo "<p class='acikmavi'>";
-            echo "yemek:";
-            echo htmlentities($kayit["yemek"]);
+            echo "yemekadi:";
+            echo htmlentities($kayit["yemekadi"]);
             echo "</p>";     
             echo "<h2 class='ortala'>"; 
-            echo htmlentities($kayit["baslik"]);
-            echo "</h2>";
             echo "<br/>";
             echo "<a href='detay.php?user_id=";
             echo $kayit["user_id"];

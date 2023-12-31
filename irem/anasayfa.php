@@ -13,7 +13,6 @@
             box-sizing: border-box;
         }
 
-        /* Typography */
         body {
             font-family: 'Rubik', sans-serif;
             font-size: 16px;
@@ -82,6 +81,9 @@
             margin: 0 10px;
             transition: color 0.3s ease;
         }
+        header nav a {
+            font-size: 18px;
+        }
 
         header a:hover {
             color: var(--color3);
@@ -94,7 +96,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 20px;
         }
 
         form input[type="search"] {
@@ -113,6 +114,8 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
+            margin-left: 10px;
+
         }
 
         form input[type="submit"]:hover {
@@ -227,17 +230,19 @@
             <img src="assets/logo.png" alt="Yemek Sitesi Logo" style="max-width: 100%;">
         </div>
 
+        <nav>
+            <a href="#">Anasayfa</a>
+            <a href="#" onclick="showAbout()">Hakkımızda</a>
+            <a href="#" onclick="showBizeUlasinModal()">İletişim</a>
+        </nav>
+        
         <!-- Search Form -->
         <form action="ara.php" method="get">
             <input type="search" name="terim" id="">
             <input type="submit" value="ARA">
         </form>
 
-        <nav>
-            <a href="#">Anasayfa</a>
-            <a href="#">Hakkımızda</a>
-            <a href="#">İletişim</a>
-        </nav>
+       
 
         <!-- Giriş Yap, Kayıt Ol ve Çıkış Yap Butonları -->
         <div class="ortala">
@@ -273,6 +278,20 @@
         echo "<div class='acikmavi'>";
         echo "<p>yemek: " . htmlentities($kayit["yemek"]) . "</p>";
         echo "<h2 class='ortala'>";
+        echo "Yemek Adı: ". htmlentities($kayit["yemekadi"]);
+        "<br>";
+        switch ($kayit["tur"]) { // dosyaturlerine göre gösterelim
+            case "image/jpeg":
+                echo '<img class="materyalresim" src="';
+                echo $kayit["dosyayolu"];
+                echo '">';
+                break;
+            case "application/pdf":
+                echo "<object data='" . $kayit["dosyayolu"] . "' type='application/pdf' width='auto' height='80px'></object>";
+                break;
+            default:
+                break;
+        }
         echo "<a href='detay.php?user_id=" . $kayit["user_id"] . "'>İncele</a>";
         echo "</h2>";
         echo "<p>Yükleyen: " . htmlentities($kayit["ad"]) . " " . htmlentities($kayit["soyad"]) . "</p>";
@@ -284,6 +303,81 @@
     <footer>
         &copy; 2023 Afiyet Olsun - Tüm Hakları Saklıdır.
     </footer>
+    <div id="aboutModal" class="modal">
+
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>HAKKIMIZDA</h3>
+            <p> Afiyet Olsun, lezzetin ve keyifli sofraların buluşma noktasıdır. Damakları şenlendiren, gözlere ve
+                midelere şölen yaşatan bu yemek tarifi platformu, gastronomi tutkunları için bir cennettir. Türk
+                mutfağının zengin mirasıyla dünya mutfaklarının enfes lezzetlerini bir araya getiren Afiyet Olsun, her
+                damak zevkine hitap etmek için burada! <br>
+
+                Sitemizde her gün yepyeni tarifler, pratik mutfak ipuçları ve lezzetli önerilerle dolu bir dünya sizi
+                bekliyor. Özenle seçilmiş tariflerimizle, sevdiklerinize unutulmaz sofralar hazırlayacaksınız. Afiyet
+                Olsun, yemek yapmayı seven herkesin kendine özel bir mutfak arkadaşıdır.<br>
+
+                Sağlıklı yaşamı ve beslenmeyi ön planda tutanlar için özel kategorilerimizde hafif, sağlıklı ve
+                besleyici tarifler bulunmaktadır. Glütensiz, vegan, vejetaryen gibi özel beslenme tercihlerine uygun
+                seçeneklerle herkes için bir şeyler var. Lezzetin sınırlarını zorlamak, yeni tatlar keşfetmek isteyenler
+                için ise dünya mutfağından seçme tarifler sunuyoruz.<br>
+
+                "Afiyet Olsun" ailesi olarak, sizlere sadece yemek tarifleri sunmanın ötesinde bir deneyim vaat
+                ediyoruz. Mutfakta geçirdiğiniz her anın keyifli, eğlenceli ve öğretici olması için buradayız.
+                Tariflerimizi deneyerek, kendi yaratıcılığınızı keşfetmeniz için ilham kaynağı olmayı hedefliyoruz.<br>
+
+                Yemek tutkunlarıyla birlikte büyüyen, paylaşılan lezzetin önemine inanan Afiyet Olsun, sofralarınıza
+                neşe ve lezzet katmak için burada. Hep birlikte, güzel anıları ve muhteşem lezzetleri paylaşarak, yemek
+                masalarını daha keyifli hale getirelim."
+            <h4>Afiyet olsun!</h4>
+            </p>
+        </div>
+    </div>
+
+        <div id="BizeUlasinModal" class="modalBizeUlasin">
+
+        <div class="modal-content">
+            <span class="close" onclick="closeBizeUlasinModal()">&times;</span>
+            <h3>BİZE ULAŞIN</h3>
+            <p>TEL: 0555 555 55 55 
+                <br>
+                <br>
+                ADRES: İstanbul
+                <br>
+                <br>
+                E-POSTA:
+            <h4>Afiyet olsun!</h4>
+            </p>
+        </div>
+    </div>
+
+
+
+    <script>
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeshowAbout();
+                closeBizeUlasinModal();
+            }
+        });
+        function showAbout() {
+            var modal = document.getElementById('aboutModal');
+            modal.style.display = 'block';
+        }
+        function closeshowAbout() {
+            var modal = document.getElementById('aboutModal');
+            modal.style.display = 'none';
+        }
+        function showBizeUlasinModal() {
+            var modal = document.getElementById('BizeUlasinModal');
+            modal.style.display = 'block';
+        }
+        function closeBizeUlasinModal() {
+            var modal = document.getElementById('BizeUlasinModal');
+            modal.style.display = 'none';
+        }
+    </script>
+
 </body>
 
 </html>
