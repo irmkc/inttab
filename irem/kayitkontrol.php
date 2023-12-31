@@ -53,6 +53,8 @@ $ifade = $vt->prepare($sql);
 $ifade->execute(Array(":ad"=>$ad, ":soyad"=>$soyad, ":email"=>$_POST["email"], ":kullanici"=>$_POST["kullanici"], ":sifre"=>$sifre));
 //Bağlantıyı yok edelim...
 echo "Kayıt tamamlandı!";
+header("Refresh:1; url=giris.php");
+
 $vt = null;
 ?>
 

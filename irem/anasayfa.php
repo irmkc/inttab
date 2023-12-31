@@ -276,7 +276,6 @@
         echo "<a href='detay.php?user_id=" . $kayit["user_id"] . "'>İncele</a>";
         echo "</h2>";
         echo "<p>Yükleyen: " . htmlentities($kayit["ad"]) . " " . htmlentities($kayit["soyad"]) . "</p>";
-        echo "<hr>";
         echo "</div>";
     }
     ?>

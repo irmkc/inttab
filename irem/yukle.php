@@ -21,6 +21,11 @@
             <option value="aperitif">Aperitif</option>
         </select>
         
+        <?PHP
+        if (!isset($_POST["ad"])) exit("İsim girilmesi gerekiyor!");
+        $ad = trim($_POST["ad"]);
+        if  (mb_strlen($ad) < 2) exit("İsim en az 2 karakter olmalıdır!");
+        ?>
         <br><br>
 
         <label for="dosya"> Yüklemek istediğiniz dosyayı seçiniz:</label>
